@@ -52,14 +52,16 @@ export default function EditAlbumPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
-       <div className="relative mb-8 flex justify-between items-center">
-        <Button asChild variant="ghost" className="absolute -left-4 -top-2">
+       <div className="mb-6">
+        <Button asChild variant="ghost" className="-ml-4">
             <Link href="/">
                 <ChevronLeft className="w-5 h-5 mr-1" />
                 {t('nav.back')}
             </Link>
         </Button>
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-center font-headline flex-grow">
+      </div>
+      <div className="mb-8">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-center font-headline">
           {t('page.editAlbum')}
         </h1>
       </div>
