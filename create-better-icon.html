@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Better Icon</title>
+</head>
+<body>
+    <h1>Generating Better Icon...</h1>
+    <canvas id="canvas" width="512" height="512" style="border: 1px solid black;"></canvas>
+    <br><br>
+    <button onclick="downloadIcon()">Download Icon</button>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function createBetterIcon() {
+            // Limpiar canvas
+            ctx.clearRect(0, 0, 512, 512);
+            
+            // Fondo oscuro
+            ctx.fillStyle = '#0a0a0a';
+            ctx.fillRect(0, 0, 512, 512);
+            
+            // Círculo de fondo
+            ctx.fillStyle = '#a855f7';
+            ctx.beginPath();
+            ctx.arc(256, 256, 200, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Círculo interno más claro
+            ctx.fillStyle = '#c084fc';
+            ctx.beginPath();
+            ctx.arc(256, 256, 160, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Texto "CC" principal
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 120px Arial, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('CC', 256, 256);
+            
+            // Texto pequeño abajo
+            ctx.font = 'bold 24px Arial, sans-serif';
+            ctx.fillText('Concept Creator', 256, 380);
+        }
+        
+        function downloadIcon() {
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'icon-512.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            }, 'image/png');
+        }
+        
+        // Crear el icono automáticamente
+        createBetterIcon();
+    </script>
+</body>
+</html> 
