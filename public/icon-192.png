@@ -1,0 +1,7 @@
+<!-- This file needs to be a 192x192 PNG icon -->
+<!-- For now, create a simple SVG version that can be converted -->
+<svg width="192" height="192" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <rect width="192" height="192" fill="#0a0a0a"/>
+  <rect x="24" y="24" width="144" height="144" rx="20" fill="#a855f7"/>
+  <text x="96" y="110" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="48" font-weight="bold">CC</text>
+</svg> 
