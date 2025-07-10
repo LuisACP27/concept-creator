@@ -1,17 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  output: 'export',
+  trailingSlash: true,
   images: {
-    domains: ['placehold.co'],
+    unoptimized: true
   },
-  experimental: {
-    appDir: true,
-  },
-};
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/concept-creator' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/concept-creator' : '',
+}
 
-module.exports = nextConfig; 
+module.exports = nextConfig 
