@@ -7,18 +7,22 @@ import { useLanguage } from "@/contexts/language-context";
 import { AlbumCard } from "@/components/album-card";
 import { AddAlbumCard } from "@/components/add-album-card";
 import { LanguageSwitcher } from "@/components/language-switcher";
+import { ExportImportButtons } from "@/components/export-import-buttons";
 
 export default function Home() {
-  const [albums] = useLocalStorage<Album[]>("albums", []);
+  const [albums, setAlbums] = useLocalStorage<Album[]>("albums", []);
   const [isClient, setIsClient] = useState(false);
   const { t } = useLanguage();
 
   useEffect(() => {
     setIsClient(true);
-  }, []);
+    // Debug log to track albums on home page
+    console.log(`🏠 DEBUG: Home page albums:`, albums);
+    console.log(`🏠 DEBUG: Home page albums count:`, albums.length);
+  }, [albums]);
 
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12 max-w-md">
+    <div className="container mx-auto px-4 py-8 md:py-12 max-w-6xl">
       <header className="text-left mb-10 animate-fadeInUp relative">
         <div className="absolute top-0 right-0">
           <LanguageSwitcher />
@@ -32,18 +36,32 @@ export default function Home() {
       </header>
 
       {isClient && (
-        <div className="flex flex-col items-start gap-12">
-          <div className="animate-pulse-glow">
-            <AddAlbumCard />
-          </div>
-          {albums.map((album, index) => (
-            <AlbumCard
-              key={album.id}
-              album={album}
-              className="opacity-0 animate-fadeInUp"
-              style={{ animationDelay: `${(index + 1) * 100}ms` }}
+        <div className="space-y-12">
+          {/* Export/Import Section */}
+          <div className="animate-scale-in" style={{ animationDelay: '200ms' }}>
+            <ExportImportButtons 
+              albums={albums} 
+              onImportAlbums={setAlbums}
             />
-          ))}
+          </div>
+          
+          {/* Albums Grid with Add Album Button */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {/* Add Album Button - First in grid */}
+            <div className="animate-pulse-glow">
+              <AddAlbumCard />
+            </div>
+            
+            {/* Existing Albums */}
+            {albums.map((album, index) => (
+              <AlbumCard
+                key={album.id}
+                album={album}
+                className="opacity-0 animate-fadeInUp"
+                style={{ animationDelay: `${(index + 1) * 100}ms` }}
+              />
+            ))}
+          </div>
         </div>
       )}
 

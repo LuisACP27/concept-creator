@@ -10,6 +10,8 @@ import type { Album, Track } from "@/types/album";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/language-context";
 import { CheckCircle, ImageIcon, Plus, Trash2, GripVertical, ChevronUp, ChevronDown } from "lucide-react";
+import { AudioUpload } from "@/components/audio-upload";
+import { VideoUpload } from "@/components/video-upload";
 
 interface AlbumFormProps {
     existingAlbum?: Album;
@@ -56,6 +58,18 @@ export function AlbumForm({ existingAlbum, setAlbums, onDelete }: AlbumFormProps
   const updateTrack = (index: number, field: keyof Track, value: string) => {
     setTracks(prev => prev.map((track, i) => 
       i === index ? { ...track, [field]: value } : track
+    ));
+  };
+
+  const updateTrackAudio = (index: number, audioFile: any) => {
+    setTracks(prev => prev.map((track, i) => 
+      i === index ? { ...track, audioFile } : track
+    ));
+  };
+
+  const updateTrackVideo = (index: number, videoFile: any) => {
+    setTracks(prev => prev.map((track, i) => 
+      i === index ? { ...track, videoFile } : track
     ));
   };
 
@@ -138,10 +152,17 @@ export function AlbumForm({ existingAlbum, setAlbums, onDelete }: AlbumFormProps
       router.push('/');
     } catch (error) {
       console.error('Error saving album:', error);
+      
+      // Show user-friendly error message for quota exceeded
+      const errorMessage = error instanceof Error ? error.message : t('message.errorSaving');
+      const isQuotaError = errorMessage.includes('Storage limit exceeded');
+      
       toast({
         variant: "destructive",
         title: t('message.error'),
-        description: t('message.errorSaving'),
+        description: isQuotaError ? errorMessage : t('message.errorSaving'),
+        // Make quota errors longer to read
+        ...(isQuotaError && { duration: 8000 })
       });
     } finally {
       setIsSubmitting(false);
@@ -345,6 +366,24 @@ export function AlbumForm({ existingAlbum, setAlbums, onDelete }: AlbumFormProps
                           value={track.description || ""}
                           onChange={(e) => updateTrack(index, 'description', e.target.value)}
                           className="min-h-[80px] input-glow"
+                        />
+                      </div>
+                      
+                      {/* Audio Upload Section */}
+                      <div>
+                        <AudioUpload
+                          audioFile={track.audioFile}
+                          onAudioChange={(audioFile) => updateTrackAudio(index, audioFile)}
+                          disabled={isSubmitting}
+                        />
+                      </div>
+
+                      {/* Video Upload Section */}
+                      <div>
+                        <VideoUpload
+                          videoFile={track.videoFile}
+                          onVideoChange={(videoFile) => updateTrackVideo(index, videoFile)}
+                          disabled={isSubmitting}
                         />
                       </div>
                     </div>

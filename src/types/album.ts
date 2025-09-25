@@ -1,7 +1,23 @@
+export interface AudioFile {
+  name: string;
+  size: number;
+  type: 'audio/wav' | 'audio/mpeg';
+  data: string; // Base64
+}
+
+export interface VideoFile {
+  name: string;
+  size: number;
+  type: 'video/mp4' | 'video/webm' | 'video/ogg';
+  data: string; // Base64
+}
+
 export interface Track {
   title: string;
   description?: string;
-  audioSrc?: string; // Base64 Data URL
+  audioSrc?: string; // Base64 Data URL (deprecated, kept for compatibility)
+  audioFile?: AudioFile;
+  videoFile?: VideoFile;
 }
 
 export interface Album {

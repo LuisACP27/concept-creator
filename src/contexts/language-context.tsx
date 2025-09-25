@@ -38,6 +38,12 @@ const translations = {
     'form.createAlbum': 'Create Album',
     'form.updateAlbum': 'Update Album',
     'form.saving': 'Saving...',
+    'form.audioFile': 'Audio File',
+    'form.uploadAudio': 'Upload Audio',
+    'form.removeAudio': 'Remove Audio',
+    'form.videoFile': 'Video File',
+    'form.uploadVideo': 'Upload Video',
+    'form.removeVideo': 'Remove Video',
     
     // Placeholders
     'placeholder.albumName': 'Ex: Echoes of the Void',
@@ -49,6 +55,8 @@ const translations = {
     'placeholder.songTitle': 'Ex: Echoes in the Night',
     'placeholder.songDescription': 'Song description, theme, style...',
     'placeholder.uploadImage': 'Click or drag to upload',
+    'placeholder.uploadAudio': 'Upload MP3 or WAV (max 50MB)',
+    'placeholder.uploadVideo': 'Upload MP4, WebM or OGG (max 100MB)',
     
     // Messages
     'message.albumNameRequired': 'Album name is required.',
@@ -61,6 +69,12 @@ const translations = {
     'message.error': 'Error',
     'message.noSongsAdded': 'No songs added yet.',
     'message.noSongsDescription': 'Click "Add Song" to get started.',
+    'message.audioTooLarge': 'Audio file is too large. Maximum size is 50MB.',
+    'message.invalidAudioFormat': 'Invalid audio format. Only MP3 and WAV are supported.',
+    'message.audioRemoved': 'Audio file removed.',
+    'message.videoTooLarge': 'Video file is too large. Maximum size is 100MB.',
+    'message.invalidVideoFormat': 'Invalid video format. Only MP4, WebM and OGG are supported.',
+    'message.videoRemoved': 'Video file removed.',
     
     // Navigation
     'nav.back': 'Back',
@@ -82,6 +96,18 @@ const translations = {
     'view.lyricalContent': 'Lyrical Content',
     'view.productionSound': 'Production & Sound',
     'view.tracklist': 'Tracklist',
+    
+    // Export/Import
+    'export.title': 'Export Albums',
+    'export.description': 'Download all your albums as a file',
+    'export.button': 'Export',
+    'import.title': 'Import Albums',
+    'import.description': 'Upload an exported album file',
+    'import.button': 'Import',
+    'import.selectFile': 'Select File',
+    'import.success': 'Albums imported successfully!',
+    'import.error': 'Error importing file. Please check the file format.',
+    'import.invalidFile': 'Invalid file format. Please select a valid export file.',
     
     // Language switcher
     'language.english': 'English',
@@ -111,6 +137,12 @@ const translations = {
     'form.createAlbum': 'Crear Álbum',
     'form.updateAlbum': 'Actualizar Álbum',
     'form.saving': 'Guardando...',
+    'form.audioFile': 'Archivo de Audio',
+    'form.uploadAudio': 'Subir Audio',
+    'form.removeAudio': 'Eliminar Audio',
+    'form.videoFile': 'Archivo de Video',
+    'form.uploadVideo': 'Subir Video',
+    'form.removeVideo': 'Eliminar Video',
     
     // Placeholders
     'placeholder.albumName': 'Ej: Ecos del Vacío',
@@ -122,6 +154,8 @@ const translations = {
     'placeholder.songTitle': 'Ej: Ecos en la Noche',
     'placeholder.songDescription': 'Descripción de la canción, temática, estilo...',
     'placeholder.uploadImage': 'Haz clic o arrastra para subir',
+    'placeholder.uploadAudio': 'Subir MP3 o WAV (máx 50MB)',
+    'placeholder.uploadVideo': 'Subir MP4, WebM o OGG (máx 100MB)',
     
     // Messages
     'message.albumNameRequired': 'El nombre del álbum es requerido.',
@@ -134,6 +168,12 @@ const translations = {
     'message.error': 'Error',
     'message.noSongsAdded': 'No hay canciones añadidas.',
     'message.noSongsDescription': 'Haz clic en "Añadir Canción" para empezar.',
+    'message.audioTooLarge': 'El archivo de audio es muy grande. El tamaño máximo es 50MB.',
+    'message.invalidAudioFormat': 'Formato de audio inválido. Solo se soportan MP3 y WAV.',
+    'message.audioRemoved': 'Archivo de audio eliminado.',
+    'message.videoTooLarge': 'El archivo de video es muy grande. El tamaño máximo es 100MB.',
+    'message.invalidVideoFormat': 'Formato de video inválido. Solo se soportan MP4, WebM y OGG.',
+    'message.videoRemoved': 'Archivo de video eliminado.',
     
     // Navigation
     'nav.back': 'Volver',
@@ -155,6 +195,18 @@ const translations = {
     'view.lyricalContent': 'Contenido Lírico',
     'view.productionSound': 'Producción y Sonido',
     'view.tracklist': 'Lista de Canciones',
+    
+    // Export/Import
+    'export.title': 'Exportar Álbumes',
+    'export.description': 'Descargar todos tus álbumes como archivo',
+    'export.button': 'Exportar',
+    'import.title': 'Importar Álbumes',
+    'import.description': 'Subir un archivo de álbumes exportado',
+    'import.button': 'Importar',
+    'import.selectFile': 'Seleccionar Archivo',
+    'import.success': '¡Álbumes importados exitosamente!',
+    'import.error': 'Error al importar archivo. Verifica el formato del archivo.',
+    'import.invalidFile': 'Formato de archivo inválido. Selecciona un archivo de exportación válido.',
     
     // Language switcher
     'language.english': 'English',
