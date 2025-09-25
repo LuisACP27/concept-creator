@@ -12,13 +12,13 @@ interface AlbumCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export function AlbumCard({ album, className, ...props }: AlbumCardProps) {
   return (
     <Link href={`/view/${album.id}`} className={cn("group block", className)} {...props}>
-      <div className="flex flex-col gap-3 p-4 rounded-lg bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:bg-card/80">
+      <div className="flex flex-col gap-2 p-2 sm:gap-3 sm:p-4 rounded-lg bg-card/50 border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:bg-card/80">
         <div className="relative overflow-hidden rounded-md">
           <Image
             src={album.coverImage}
             alt={`Cover for ${album.name}`}
-            width={300}
-            height={300}
+            width={200}
+            height={200}
             className="w-full h-auto object-cover aspect-square group-hover:scale-110 transition-transform duration-500"
             data-ai-hint="album cover"
           />

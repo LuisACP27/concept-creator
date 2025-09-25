@@ -46,7 +46,7 @@ export default function Home() {
           </div>
           
           {/* Albums Grid with Add Album Button */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {/* Add Album Button - First in grid */}
             <div className="animate-pulse-glow">
               <AddAlbumCard />
