@@ -211,7 +211,7 @@ export function ExportImportButtons({ albums, onImportAlbums }: ExportImportButt
               <div className="min-w-0 flex-1">
                 <h3 className="font-medium text-sm text-destructive">Clear All Data</h3>
                 <p className="text-xs text-muted-foreground">
-                  Remove all albums and start fresh ({storageInfo.usedMB} used)
+                  {storageInfo.usedMB} used
                 </p>
               </div>
             </div>
